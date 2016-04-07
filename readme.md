@@ -1,7 +1,7 @@
 High Level Diagram
 ==================
 
-[alt text] (./resources/reservations_hlvl_diagram.png "High Level Diagram")
+[alt text] (/resources/reservations_hlvl_diagram.png "High Level Diagram")
 
 Details of Implementaion
 ========================

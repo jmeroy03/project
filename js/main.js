@@ -158,12 +158,14 @@ var Reservations = {
         repeatStartDate = reservation.startDate;
         repeatEndDate = $('#repeatEndDate').val();
 
-        if (reservation.repeat !== 'Never'){
+        if (repeat !== 'Never'){
             var endDate = new Date(repeatEndDate);
             var date = new Date(repeatStartDate);
+            console.log(repeatStartDate);
             while(date <= endDate){
                 reservation.id = this.id++;
-                reservation.startDate = date.getMonth() + '/' + date.getDay() + '/' + date.getYear();
+                reservation.startDate = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+                console.log(reservation.startDate);
                 this.rooms[color].add(reservation);
                 date.setDate(date.getDate() + 7);
             }
@@ -180,7 +182,7 @@ var Reservations = {
 		    for(var i=0; i<reservations.length; i++){
 			      // TODO: check each item if has conflit then set the row styling color to red
 			      var reservation = reservations[i];
-            var startDate = new Date(reservation.startDate).toString();
+            var startDate = new Date(reservation.startDate).toDateString();
             startDate = startDate.substr(0, startDate.length-5);
 			      var row = '';
 			      if (reservation.conflict){
